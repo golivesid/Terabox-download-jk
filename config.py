@@ -1,7 +1,11 @@
+from dotenv import load_dotenv
 import os
 
-API_TOKEN = os.getenv("API_TOKEN", "your_bot_token")
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://username:password@cluster.mongodb.net/myDatabase?retryWrites=true&w=majority")
-CHANNEL_ID = os.getenv("CHANNEL_ID", "@your_channel")
-ADMINS = list(map(int, os.getenv("ADMINS", "123456789").split()))
-FORCE_SUB = os.getenv("FORCE_SUB", "@your_channel")  # Force Subscription Channel
+# Load environment variables from .env file
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # Telegram Bot Token
+MONGO_URI = os.getenv("MONGO_URI")  # MongoDB Connection String
+TERABOX_API = os.getenv("TERABOX_API")  # Terabox API Key (Optional)
+ADMIN_ID = int(os.getenv("ADMIN_ID", 0))  # Admin Telegram ID (Default: 0)
+CHANNEL_ID = os.getenv("CHANNEL_ID")  # Forcing Subscription Channel ID
